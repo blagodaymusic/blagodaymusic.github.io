@@ -646,19 +646,13 @@ button.sb{font:inherit;text-align:left;cursor:pointer;width:100%}
         <a class="more mono" id="vAll" href="https://www.youtube.com/@BlagodayVision/videos" target="_blank" rel="noopener"></a>
       </div>
       <div class="mtabs vtabs" role="tablist">
-        <button data-vt="live"><b>● Live</b><i>2</i></button>
         <button data-vt="l2250" class="on"><b>Life in 2250</b><i id="vtN"></i></button>
-        <button data-vt="clips"><b data-i="vt_clips">Кліпи</b><i>2</i></button>
-        <button data-vt="shorts"><b>Shorts</b><i>2</i></button>
       </div>
-      <div class="vpanel vclips" data-vp="live" hidden><button class="v clip live" data-yt="Mbpn42_xcKU"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/Mbpn42_xcKU/maxresdefault_live.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Mbpn42_xcKU/hqdefault_live.jpg'" alt=""><span class="dur">● LIVE</span><div class="play"></div></div><div class="vi"><h3>Blagoday Ambient Radio 24/7</h3><div class="m mono">Deep Relaxing Music & Dreamy Soundscapes</div></div></button><button class="v clip live" data-yt="rupghrobb7E"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/rupghrobb7E/maxresdefault_live.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/rupghrobb7E/hqdefault_live.jpg'" alt=""><span class="dur">● LIVE</span><div class="play"></div></div><div class="vi"><h3>Blagoday Lo-Fi Radio 24/7</h3><div class="m mono">Original Chill Beats & Evolving Visuals</div></div></button></div>
       <div class="vpanel" data-vp="l2250">
         <div class="feature" id="feat"></div>
         <div class="vgrid" id="vgrid"></div>
         <div class="loadmore"><button class="btn" id="vmore" data-i="more">Показати більше</button></div>
       </div>
-      <div class="vpanel vclips" data-vp="clips" hidden><button class="v clip" data-yt="pd7VrC9T4vA"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/pd7VrC9T4vA/maxresdefault.jpg" onerror="this.src='https://i.ytimg.com/vi/pd7VrC9T4vA/hqdefault.jpg'" alt=""><span class="dur">4:30</span><div class="play"></div></div><div class="vi"><h3>Ця пісня про шкафчик — This Song Is About a Cabinet</h3><div class="m mono">@TheBlagoday</div></div></button><button class="v clip" data-yt="XujD3DbLgiA"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/XujD3DbLgiA/maxresdefault.jpg" onerror="this.src='https://i.ytimg.com/vi/XujD3DbLgiA/hqdefault.jpg'" alt=""><span class="dur">3:59</span><div class="play"></div></div><div class="vi"><h3>BOROZDIT (Official Music Video)</h3><div class="m mono">@TheBlagoday</div></div></button></div>
-      <div class="vpanel vshorts" data-vp="shorts" hidden><button class="v sht" data-yt="vEdU9vHVbLw"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/vEdU9vHVbLw/oardefault.jpg" onload="if(this.naturalWidth<=120)this.src='https://i.ytimg.com/vi/vEdU9vHVbLw/maxresdefault.jpg'" onerror="this.src='https://i.ytimg.com/vi/vEdU9vHVbLw/maxresdefault.jpg'" alt=""><span class="tag">SHORTS</span><div class="play"></div></div><div class="vi"><h3>Ця пісня про шкафчик</h3></div></button><button class="v sht" data-yt="g7oDiOLLc8U"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/g7oDiOLLc8U/oardefault.jpg" onload="if(this.naturalWidth<=120)this.src='https://i.ytimg.com/vi/g7oDiOLLc8U/maxresdefault.jpg'" onerror="this.src='https://i.ytimg.com/vi/g7oDiOLLc8U/maxresdefault.jpg'" alt=""><span class="tag">SHORTS</span><div class="play"></div></div><div class="vi"><h3>BOROZDIT</h3></div></button></div>
     </div>
   </section>
 
@@ -1480,7 +1474,7 @@ var vTab;
 function setVTab(k){vTab=k;document.querySelectorAll(".vtabs button").forEach(b=>b.classList.toggle("on",b.dataset.vt===k));document.querySelectorAll(".vpanel").forEach(p=>p.hidden=p.dataset.vp!==k);vText();try{sessionStorage.setItem("bl_vt",k)}catch(e){}}
 function vText(){const s=document.getElementById("vSub"),a=document.getElementById("vAll");if(!s||!vTab)return;s.textContent=t("vs_"+vTab);const yt=vTab==="l2250";a.href=yt?"https://www.youtube.com/@BlagodayVision/videos":vTab==="live"?"https://www.youtube.com/@TheBlagoday/streams":vTab==="shorts"?"https://www.youtube.com/@TheBlagoday/shorts":"https://www.youtube.com/@TheBlagoday/videos";a.textContent=t(yt?"va_l2250":"va_ch");const n=document.getElementById("vtN");if(n&&typeof VIDEOS!=="undefined")n.textContent=VIDEOS.length;}
 document.querySelectorAll(".vtabs button").forEach(b=>b.addEventListener("click",()=>setVTab(b.dataset.vt)));
-{let k="live";try{k=sessionStorage.getItem("bl_vt")||"live"}catch(e){}setVTab(k);}
+{let k="l2250";try{k=sessionStorage.getItem("bl_vt")||"l2250"}catch(e){}setVTab(k);}
 
 mCounts();{let k0="album";try{k0=sessionStorage.getItem("bl_mtab")||"album"}catch(e){}setMTab(k0);}hashTab();
 {const qp=new URLSearchParams(location.search).get("play");const k=qp||(/^#play=/.test(location.hash)?decodeURIComponent(location.hash.slice(6)):"");if(k&&byP[k])openSC("track:"+k);
